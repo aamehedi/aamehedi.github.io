@@ -29,4 +29,4 @@ const ForwardRefEditor = dynamic(() => import("@/components/ForwardRefEditor"), 
     );
 }
 
-export default Post;
+export default dynamic(() => Promise.resolve(Post), { ssr: false });
