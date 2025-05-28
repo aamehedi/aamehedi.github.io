@@ -4,6 +4,13 @@ import { promises as fs } from "fs";
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
+interface Post {
+    id: string;
+    title: string;
+    date: string;
+    [key: string]: any;
+}
+
 export const readFile = async (path: string) => {
     return await fs.readFile(path, 'utf8');
 }
@@ -23,13 +30,18 @@ export async function getSortedPostsData() {
         const matterResult = matter(fileContents);
 
         // Combine the data with the id
-        return {
+        const post: Post = {
             id,
+            title: matterResult.data.date,
+            date: matterResult.data.date,
             ...matterResult.data,
-        };
+        }
+        return post;
     });
+
     // Sort posts by date
-    return allPostsData.sort((a, b) => {
+    // @ts-ignore
+    return allPostsData.sort((a : Post , b: Post) => {
         if (a.date < b.date) {
             return 1;
         } else {

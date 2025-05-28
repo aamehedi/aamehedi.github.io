@@ -15,7 +15,6 @@ const ForwardRefEditor = dynamic(() => import("@/components/ForwardRefEditor"), 
     const fetchPost = async (id: string) => {
         const response = await fetch(`/api/posts/${id}`);
         const data = await response.json();
-        console.log(data)
         setPost(data);
     }
 

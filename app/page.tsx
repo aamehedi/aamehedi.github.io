@@ -10,7 +10,7 @@ const Home = async () => {
             <section>
                 <h2>Blog</h2>
                 <ul>
-                    {allPostsData.map(({id, date, title}) => (
+                    {allPostsData.map(({id, date, title} ) => (
                         <li key={id}>
                             {<Link href={`/admin/posts/${id}`}>{title}</Link>}
                             <br/>
