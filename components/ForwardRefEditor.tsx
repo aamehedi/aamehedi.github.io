@@ -18,5 +18,5 @@ export const ForwardRefEditor = forwardRef<MDXEditorMethods, MDXEditorProps>(
 );
 
 // TS complains without the following line
-// ForwardRefEditor.displayName = "ForwardRefEditor";
+ForwardRefEditor.displayName = "ForwardRefEditor";
 export default ForwardRefEditor;
