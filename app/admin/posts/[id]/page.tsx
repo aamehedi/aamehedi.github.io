@@ -9,7 +9,7 @@ import '@mdxeditor/editor/style.css';
 const ForwardRefEditor = dynamic(() => import("@/components/ForwardRefEditor"), { ssr: false })
 
 
- const Post = ({ params }) => {
+ const Post = ({ params } : { params: any}) => {
     const [post, setPost] = useState("");
 
     const fetchPost = async (id: string) => {
